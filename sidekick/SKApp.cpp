@@ -442,7 +442,11 @@ void SKApp::activateItem() {
         std::cerr << "launch : " << item->name_ << std::endl;
 
         device_.displayPaint();
-        sidekickActive_ = false;
+
+        if (patchDir_ != "./patches/Scripts") {
+            sidekickActive_ = false;
+        }
+        
         std::string dir = patchDir_;
         std::string topDir = topPatchDir_;
         if (item->system_) {
